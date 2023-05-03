@@ -1,2 +1,2 @@
-# tensorflow_custom_object_detection
+# Tensorflow Object Detection
 Real time gun detection using tensorflow object detection API
