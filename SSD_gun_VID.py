@@ -76,7 +76,7 @@ def load_image_into_numpy_array(path):
 start_time = cv2.getTickCount()
 frame_count = 0
 
-vid = cv2.VideoCapture(r'gun_test\test_vid2.mp4')
+vid = cv2.VideoCapture(r'gun_test\test_vid3.mp4')
 
 while True: 
   isTrue, frame = vid.read()
