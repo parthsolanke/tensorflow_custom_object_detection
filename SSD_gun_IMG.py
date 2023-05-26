@@ -9,14 +9,6 @@ import argparse
 def distance_to_camera(knownWidth, focalLength, perWidth):
   return (knownWidth * focalLength) / perWidth
 
-# rescaling function
-def rescaleFrame(frame , scale):
-   width = int(frame.shape[1] * scale)
-   height = int(frame.shape[0] * scale)
-   dimensions = (width,height)
-
-   return cv2.resize(frame , dimensions , interpolation=cv2.INTER_AREA)
-
 # Enable GPU dynamic memory allocation
 gpus = tf.config.experimental.list_physical_devices('GPU')
 for gpu in gpus:

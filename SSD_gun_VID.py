@@ -76,7 +76,7 @@ def load_image_into_numpy_array(path):
 start_time = cv2.getTickCount()
 frame_count = 0
 
-vid = cv2.VideoCapture(r'gun_test\wick.mp4')
+vid = cv2.VideoCapture(r'gun_test\test_vid2.mp4')
 
 while True: 
   isTrue, frame = vid.read()
@@ -84,7 +84,7 @@ while True:
   if not isTrue:
     break
   
-  #frame = rescaleFrame(frame , scale=0.35)
+  frame = rescaleFrame(frame , scale=0.20)
 
   image_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
   image_expanded = np.expand_dims(image_rgb, axis=0)
