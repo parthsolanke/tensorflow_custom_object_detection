@@ -5,9 +5,13 @@ import tensorflow as tf
 import cv2
 import argparse
 
-# calculate distance of trh object from the camera
-def distance_to_camera(knownWidth, focalLength, perWidth):
-  return (knownWidth * focalLength) / perWidth
+# rescaling function
+def rescaleFrame(frame , scale):
+   width = int(frame.shape[1] * scale)
+   height = int(frame.shape[0] * scale)
+   dimensions = (width,height)
+
+   return cv2.resize(frame , dimensions , interpolation=cv2.INTER_AREA)
 
 # Enable GPU dynamic memory allocation
 gpus = tf.config.experimental.list_physical_devices('GPU')
@@ -64,11 +68,12 @@ def load_image_into_numpy_array(path):
     """
     return np.array(Image.open(path))
 # PROVIDE PATH TO IMAGE DIRECTORY
-IMAGE_PATHS = r"C:\Users\Parth Solanke\Documents\dev\Deep learning\tensorflow_custom_object_detection\gun_test\test3.jpg"
+IMAGE_PATHS = r"gun_test\test.jpg"
 
 print('Running inference for {}... '.format(IMAGE_PATHS), end='')
 
 image = cv2.imread(IMAGE_PATHS)
+image = rescaleFrame(image , scale=0.45)
 image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 image_expanded = np.expand_dims(image_rgb, axis=0)
 

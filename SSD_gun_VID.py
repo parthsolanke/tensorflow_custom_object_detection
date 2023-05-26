@@ -5,10 +5,6 @@ import tensorflow as tf
 import cv2
 import argparse
 
-# calculate distance of trh object from the camera
-def distance_to_camera(knownWidth, focalLength, perWidth):
-  return (knownWidth * focalLength) / perWidth
-
 # rescaling function
 def rescaleFrame(frame , scale):
    width = int(frame.shape[1] * scale)
