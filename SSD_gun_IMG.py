@@ -68,7 +68,7 @@ def load_image_into_numpy_array(path):
     """
     return np.array(Image.open(path))
 # PROVIDE PATH TO IMAGE DIRECTORY
-IMAGE_PATHS = r"gun_test\test.jpg"
+IMAGE_PATHS = r"gun_test\test3.jpg"
 
 print('Running inference for {}... '.format(IMAGE_PATHS), end='')
 
